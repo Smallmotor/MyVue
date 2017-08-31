@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+
+    <div id="box"> 
+        <div v-show="isok">啦啦啦</div>
+        <input type="button" @click="dianji" value="按钮"/>
+        <ol>
+            <li v-for="item of obj">{{item}}</li>
+        </ol>
+    </div>
+
+
+    <script src="vue.js"></script>
+    <script>
+
+        var vm = new Vue({
+            el:"#box",
+            data:{
+                isok:true,
+                hh:[
+                    {text:"第一组"},
+                    {text:"第二组"},
+                    {text:"第三组"},
+                    {text:"第四组"},
+                ] ,          
+                obj: {
+                    firstName: 'John',
+                    lastName: 'Doe',
+                    age: 30
+                }
+            },
+            methods:{
+                dianji:function(){
+                    if(this.isok==true){
+                        this.isok=false
+                    }else{
+                        this.isok=true
+                    }
+                    
+                }
+            }
+        })
+    </script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div id="box">
+
+        <!-- <h1 v-if="ok>=100">1</h1>
+        <h1 v-else-if="ok>=60">2</h1>
+        <h1 v-else="ok>=30">3</h1> -->
+        <!-- <template v-if="ok">
+            <h1>Title</h1>
+            <p>Paragraph 1</p>
+            <p>Paragraph 2</p>
+        </template> -->
+        <!-- <ul>
+                <li v-for="(item,key,index) of items">
+                        {{index}} . {{key}} : {{item}}
+                    </li>
+        </ul> -->
+        <template v-for="item in todo">
+                <li>{{ item.text }}</li>
+                <li class="divider"></li>
+            </template>
+       <!--  -->
+        <!-- <mycom v-for="(item,index) in todo" :key="index" :xiang="item.text"></mycom> -->
+    </div>
+    <script src="vue.js"></script>
+    <script>
+        Vue.component('mycom', {
+            template: "<h1>{{this.xiang}}</h1>",
+            props:["xiang"]
+        })
+        var vm = new Vue({
+            el:"#box",
+            data:{
+                items:{
+                    text1:"第一组",
+                    text2:"第二组",
+                    text3:"第三组"
+                },
+                // todo:[
+                //     {text:1,ok:true},
+                //     {text:2,ok:false},
+                //     {text:3,ok:true},   
+                // ]
+                todo:[
+                    {text:1,ok:true},
+                    {text:2,ok:false},
+                    {text:3,ok:true},   
+                ]
+                    
+                
+            }   
+        })
+        
+    </script>
+</body>
+</html>

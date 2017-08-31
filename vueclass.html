@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    
+</head>
+<body>
+    <div id="box">
+        <div v-bind:class="[a,b]"></div>
+        <!-- <div v-bind:class="[isActive ? a : '', errorClass]"></div> -->
+        <!-- <div v-bind:class="[isActive ? a : '',b]"></div> -->
+        <div v-bind:style="[x, y]">我向风一样自由</div>
+        <h1 v-if="ok">Yes</h1>
+    </div>
+    
+    <script src="vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el:"#box",
+            data: {
+                isActive: true,
+                hasError: false,
+                a:"ss",
+                b:"gg",
+                x:{color:'red'},
+                y:{'font-size':'10px'},
+                ok:false
+                },
+            computed: {
+                classObject: function () {
+                    if(this.isActive==true){
+                        active=true
+                    }else{
+                        active:this.haserror
+                    }
+                }
+            }
+            
+        })
+        
+    </script>
+</body>
+</html>
